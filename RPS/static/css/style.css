@@ -1,0 +1,34 @@
+.main-block{
+    left:40%;
+    top: 30%;
+}
+.game-block{
+    left:40%;
+    top: 10%;
+}
+ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 8px;
+  text-align: center;
+}
+.icon-option-name {
+  font-size: 20px !important;
+  color: #e7c53c;
+}
+.icon-option {
+  font-size: 60px !important;
+  color: #000000;
+  border-radius: 100px;
+  border: 6px solid #000000;
+  padding: 20px;
+  cursor: pointer;
+}
+.winner{
+  color: #61e73c;
+  border: 6px solid #61e73c;
+}
+.loser{
+  color: #ea0808;
+  border: 6px solid #ea0808;
+}

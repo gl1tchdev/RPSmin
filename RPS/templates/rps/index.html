@@ -1,11 +1,12 @@
 {% extends "rps/layout.html" %}
 {% block content %}
     <div class="position-absolute main-block">
-        <p style="left: 30%; top: 0" class="position-relative fw-light fs-1">Welcome</p>
-        <p style="margin-top: -6%" class="position-relative fw-light fs-1">Type your nickname here:</p>
-        <form method="POST" action="game">
-            <input style="margin-top: -3%; width: 50%; left: 20%" type="text" name="nickname" class="position-relative form-control">
-            <button style="margin-top: 2%; left: 30%" type="submit" class="position-relative btn btn-primary">START GAME</button>
+        <img style="width: 40%; height: auto; margin-left: 10%" src="{{ url_for('static', filename='icon.png') }}">
+        <p style="left: 20%; top: 0" class="position-relative fw-light fs-1">Welcome</p>
+        <p style="margin-top: -2%" class="position-relative fw-light fs-1">Type your nickname here:</p>
+        <form class="position-relative" method="POST" action="game">
+            <input style="margin-top: -2%; width: 63%;" type="text" name="nickname" class="position-relative form-control">
+            <button style="margin-top: 2%; left: 25%" type="submit" class="position-relative btn btn-primary">START GAME</button>
         </form>
     </div>
 {% endblock %}

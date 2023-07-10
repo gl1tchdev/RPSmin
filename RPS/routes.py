@@ -14,7 +14,22 @@ game_result = {
     'paper': 'rock',
     'scissors': 'paper'
 }
-
+game_messages = {
+    'win': [
+        'Good!',
+        'Congratulations',
+        'So lucky',
+        'Well played'
+    ],
+    'lose': [
+        'Oops!',
+        ':(',
+        'Never give up',
+        'Nice try',
+        'GG'
+    ],
+    'draw': ['No winners', 'Porridge mala']
+}
 
 app = create_app()
 
@@ -23,7 +38,7 @@ app = create_app()
 def home():
     if session.get('nickname'):
         return redirect(url_for('game'))
-    return render_template('/rps/index.html')
+    return render_template('/rps/index.html', title='Home')
 
 @app.route('/game', methods=['POST', 'GET'])
 def game():
@@ -42,12 +57,14 @@ def game():
             # User won
             context.update({'winner': 'user'})
             session['score'] += 1
+            context.update({'message': random.choice(game_messages['win'])})
         elif user_choice == pc_choice:
             # No winners
-            context.update({'winner': 'nobody'})
+            context.update({'message': random.choice(game_messages['draw'])})
         else:
             # PC won
             context.update({'winner': 'pc'})
+            context.update({'message': random.choice(game_messages['lose'])})
             if session['score'] > 0:
                 session['score'] -= 1
     return render_template('/rps/game.html', context=context)

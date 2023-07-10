@@ -11,3 +11,4 @@ pip install -r requirements.txt
 python app.py
 ```
 # Enjoy
+![](https://github.com/gl1tchdev/RPSmin/blob/master/demo.gif)

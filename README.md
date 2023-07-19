@@ -4,6 +4,7 @@ Simple rock-paper-scissors game
 # Install
 ```
 cd RPS
+source env/bin/activate
 pip install -r requirements.txt
 ```
 # Run

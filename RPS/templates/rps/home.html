@@ -1,7 +1,7 @@
 {% extends "rps/layout.html" %}
 {% block content %}
     <div class="position-absolute main-block">
-        <img style="width: 40%; height: auto; margin-left: 10%" src="{{ url_for('static', filename='icon.png') }}">
+        <img style="width: 40%; height: auto; margin-left: 10%" src="{{ url_for('rps.static', filename='icon.png') }}">
         <p style="left: 20%; top: 0" class="position-relative fw-light fs-1">Welcome</p>
         <p style="margin-top: -2%" class="position-relative fw-light fs-1">Type your nickname here:</p>
         <form class="position-relative" method="POST" action="game">

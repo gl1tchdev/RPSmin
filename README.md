@@ -3,9 +3,13 @@ Simple rock-paper-scissors game
 
 # Install
 ```
-cd RPS
+apt-get install git python
+git clone https://github.com/gl1tchdev/RPSmin
+cd RPSmin
+python -m venv env
 source env/bin/activate
 pip install -r requirements.txt
+pip install gunicorn
 ```
 # Run
 ```

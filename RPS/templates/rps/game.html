@@ -1,11 +1,64 @@
 {% extends "rps/layout.html" %}
 {% block head %}
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
     <script src="https://use.fontawesome.com/d2b46f845b.js"></script>
 {% endblock %}
 {% block content %}
-        <div class="game-block position-absolute">
-        <img style="width: 40%; height: auto; margin-left: 5%" src="{{ url_for('rps.static', filename='icon.png') }}">
+<div class="d-flex align-items-center row w-100 h-100">
+    <div style="height: auto;" class="d-flex justify-content-center pt-4">
+        <img style="max-height: 15rem; height: auto; width: auto;" src="{{ url_for('rps.static', filename='icon.png') }}" alt="game">
+    </div>
+    <span class="text-center fw-light fs-1">Hey, {{ session['nickname'] }}
+        <i onclick="window.open('{{ url_for('rps.logout') }}', '_self')" style="cursor: pointer" class="fas fa-arrow-right-from-bracket">
+        </i>
+    </span>
+    <p class="text-center fw-light fs-1 mb-0">Your score: {{ session['score'] }}</p>
+    {% if context['pc_choice'] %}
+        <p class="text-center fw-light fs-2">PC choice:</p>
+        <div class="d-flex justify-content-center">
+        <i style="pointer-events: none"
+           class="text-center icon-option fa fa-hand-{{ context['pc_choice'] }}-o
+            {% if context['winner'] == 'pc' %}
+                winner
+            {% elif context['winner'] == 'user' %}
+                loser
+            {% endif %}" aria-hidden="true">
+        </i>
+        </div>
+        <p class="text-center fw-light fs-2">Your choice:</p>
+    {% endif %}
+    <div class="d-flex justify-content-center">
+        <div class="pe-3">
+            <i onclick="window.open({{'"' + url_for('rps.game') + '?choice=rock' + '"' }}, '_self')" data-mdb-ripple-color="dark"
+               class="btn-light icon-option fa fa-hand-rock-o
+                {% if context['winner'] == 'user' and context['user_choice'] == 'rock' %}
+                     winner
+                {% elif context['winner'] == 'pc' and context['user_choice'] == 'rock' %}
+                     loser
+                {% endif %}" aria-hidden="true">
+            </i>
+        </div>
+        <div class="pe-3">
+            <i onclick="window.open({{'"' + url_for('rps.game') + '?choice=paper' + '"' }}, '_self')" data-mdb-ripple-color="dark"
+               class="btn-light icon-option fa fa-hand-paper-o
+                {% if context['winner'] == 'user' and context['user_choice'] == 'paper' %}
+                     winner
+                {% elif context['winner'] == 'pc' and context['user_choice'] == 'paper' %}
+                     loser
+                {% endif %}" aria-hidden="true">
+            </i>
+        </div>
+        <div class="pe-3">
+            <i onclick="window.open({{'"' + url_for('rps.game') + '?choice=scissors' + '"' }}, '_self')" data-mdb-ripple-color="dark"
+               class="btn-light icon-option fa fa-hand-scissors-o
+                {% if context['winner'] == 'user' and context['user_choice'] == 'scissors' %}
+                    winner
+                {% elif context['winner'] == 'pc' and context['user_choice'] == 'scissors' %}
+                    loser
+                {% endif %}" aria-hidden="true">
+            </i>
+        </div>
+    </div>
+        <!--
             <div class="position-relative" style="margin-left: 10%; display: flex; width: 120%">
                 <p style="margin-right: 1%" class="fw-light fs-1">Hey, {{ session['nickname'] }}!</p>
                 <img onclick="window.open('{{ url_for('rps.logout') }}', '_self')" style="width: 3%; height: 3%; margin-top: 2%; cursor: pointer;" src="{{ url_for('rps.static', filename='logout.png') }}">
@@ -74,5 +127,6 @@
       </div>
     </div>
   </div>
+  -->
 </div>
 {% endblock %}

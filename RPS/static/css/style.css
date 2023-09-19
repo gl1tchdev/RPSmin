@@ -11,7 +11,7 @@
   color: #000000;
   border-radius: 10%;
   border: 6px solid #000000;
-  padding: 20px;
+    padding: 15px;
   cursor: pointer;
 }
 .winner{
@@ -21,7 +21,4 @@
 .loser{
   color: #ea0808;
   border: 6px solid #ea0808;
-}
-.choices{
-    margin-left: 4%;
 }

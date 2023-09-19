@@ -1,12 +1,21 @@
 {% extends "rps/layout.html" %}
 {% block content %}
-    <div class="position-absolute main-block">
-        <img style="width: 40%; height: auto; margin-left: 10%" src="{{ url_for('rps.static', filename='icon.png') }}">
-        <p style="left: 20%; top: 0" class="position-relative fw-light fs-1">Welcome</p>
-        <p style="margin-top: -2%" class="position-relative fw-light fs-1">Type your nickname here:</p>
-        <form class="position-relative" method="POST" action="game">
-            <input style="margin-top: -2%; width: 63%;" type="text" name="nickname" class="position-relative form-control">
-            <button style="margin-top: 2%; left: 25%" type="submit" class="position-relative btn btn-primary">START GAME</button>
+    <div class="d-flex align-items-center row w-100 h-100">
+        <div style="height: auto;" class="d-flex justify-content-center pt-4">
+            <img class="img-fluid" style="max-height: 23rem;" src="{{ url_for('rps.static', filename='icon.png') }}" alt="Wlc">
+        </div>
+        <p class="fs-1 fw-lighter text-center mb-0">Welcome!</p>
+        <p class="text-center fw-light fs-1">Choose your nickname</p>
+        <div class="d-flex justify-content-center">
+            <form style="width:auto; min-width: 33%;" method="POST" action="{{ url_for('rps.game') }}">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="text" id="nickname" name="nickname" class="form-control form-control-lg">
+                        <label class="form-label" for="nickname">Nickname</label>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-primary">START</button>
+                </div>
         </form>
+        </div>
     </div>
 {% endblock %}

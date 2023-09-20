@@ -1,5 +1,8 @@
 # Description
-Simple rock-paper-scissors game
+This is a simple rock-paper-scissors game. Enjoy it - http://rps.glitchdev.space.
+<p align="center">
+  <img src="https://i.imgur.com/8DJiIKh.jpg">
+</p>
 
 # Install
 ```
@@ -17,5 +20,3 @@ python app.py
 ```
 ## Production 
 Use [this](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-22-04) and ```wsgi.py``` to run app with gunicorn and nginx
-# Demo
-Test it: http://rps.glitchdev.space
